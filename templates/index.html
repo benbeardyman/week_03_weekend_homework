@@ -10,6 +10,10 @@
                 <h3>Name: {{ book.title }}</h3>
                 <h4>Author: {{ book.author }}</h4>
                 <h4>Genre: {{ book.genre }}</h4>
+                {% if book.checked_out %}
+                <h4> Book is checked out</h4>
+                {% endif %}
+
                 <a href="/books/{{books.index(book)}}">View Book</a>
 
                 <form action="books/delete/{{ loop.index0 }}" method="POST">
@@ -29,6 +33,8 @@
                 <input type="text" name="author" id="author">
                 <label for="genre">Genre</label>
                 <input type="text" name="genre" id="genre">
+                <label for="checked_out">Checked Out?</label>
+                <input type="checkbox" name="checked_out" id="checked_out">
                 <input type="submit" value="Add Book">
             </form>
     </div>

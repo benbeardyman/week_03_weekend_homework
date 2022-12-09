@@ -16,7 +16,8 @@ def add_book():
     title = request.form['title']
     author = request.form['author']
     genre = request.form['genre']
-    new_book = Book(title, author, genre)
+    checked_out = request.form.get('checked_out')
+    new_book = Book(title, author, genre, checked_out)
     add_new_book(new_book)
     return redirect('/books')
 
