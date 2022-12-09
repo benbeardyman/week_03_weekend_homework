@@ -1,14 +1,30 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Library</h1>
-
-    {% for book in books %}
-    <div class="library">
-        <h2>Name: {{ book.title }}</h2>
-        <h3>Author: {{ book.author }}</h3>
-        <h3>Genre: {{ book.genre }}</h3>
+<h1>Manage Library:</h1>
+    
+    <div>
+        <h2>Books:</h2>
+            {% for book in books %}
+            <div>
+                <h3>Name: {{ book.title }}</h3>
+                <h4>Author: {{ book.author }}</h4>
+                <h4>Genre: {{ book.genre }}</h4>
+            </div>
+            {% endfor %}
     </div>
-    {% endfor %}
+
+    <div>
+        <h2>New Book:</h2>
+            <form action="/library" method="post">
+                <label for="title">Title</label>
+                <input type="text" name="title" id="title">
+                <label for="author">Author</label>
+                <input type="text" name="author" id="author">
+                <label for="genre">Genre</label>
+                <input type="text" name="genre" id="genre">
+                <input type="submit" value="Add Book">
+            </form>
+    </div>
 
 {% endblock %}

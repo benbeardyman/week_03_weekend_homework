@@ -6,3 +6,6 @@ book3 = Book("Pens Are My Friends", "Jon Burgerman", "Art & Design")
 
 books = [book1, book2, book3]
 
+def add_new_book(book):
+    books.append(book)
+
