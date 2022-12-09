@@ -3,7 +3,7 @@
 {% block content %}
 <h1>Manage Library:</h1>
     
-    <div>
+    <div id="books">
         <h2>All Books:</h2>
             {% for book in books %}
             <div>
@@ -14,17 +14,18 @@
                 <h4> Book is checked out</h4>
                 {% endif %}
 
-                <a href="/books/{{books.index(book)}}">View Book</a>
+                <a href="/books/{{ books.index(book) }}">View Book</a>
 
                 <form action="books/delete/{{ loop.index0 }}" method="POST">
-                    <input type="submit" value="Delete">
+                    <input type="submit" value="Delete Book">
                 </form>
 
             </div>
             {% endfor %}
     </div>
 
-    <div>
+    <footer>
+    <div id="new-book">
         <h2>New Book:</h2>
             <form action="/books" method="post">
                 <label for="title">Title</label>
@@ -33,10 +34,11 @@
                 <input type="text" name="author" id="author">
                 <label for="genre">Genre</label>
                 <input type="text" name="genre" id="genre">
-                <label for="checked_out">Checked Out?</label>
+                <label for="checked_out">Check Book Out</label>
                 <input type="checkbox" name="checked_out" id="checked_out">
                 <input type="submit" value="Add Book">
             </form>
     </div>
+    </footer>
 
 {% endblock %}
